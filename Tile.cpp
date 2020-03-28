@@ -12,6 +12,10 @@ bool Tile::getVisited(int v) const {
 	return visited[v];
 }
 
+void Tile::visit(int v) {
+	visited[v] = true;
+}
+
 Tile::Tile(int _x, int _y, int* e){
 	x = _x;
 	y = _y;

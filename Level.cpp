@@ -23,6 +23,26 @@ void Level::displayInfo() {
 	cout << "Number of tiles: " << grid.size() << "\n";
 }
 
+void Level::addPlayer(Player p) {
+	player.push_back(p);
+}
+
+Player& Level::getPlayer(int n) {
+	return player[n];
+}
+
+int Level::gridSize() const {
+	return grid.size();
+}
+
+Tile& Level::getTile(int _x, int _y) {
+	for (int i = 0; i < grid.size(); i++) {
+		if (grid[i].getX() == _x && grid[i].getY() == _y) {
+			return grid[i];
+		}
+	}
+}
+
 Level::Level(int lvl) {
 	setLevelNo(lvl);
 	ifstream file;
@@ -32,7 +52,10 @@ Level::Level(int lvl) {
 	int loadingStage = 0;
 	while (file.good()) {
 		getline(file, line);
-		if (line == "$GENERAL") {
+		if (line == "") {
+			continue;
+		}
+		else if (line == "$GENERAL") {
 			loadingStage = 0;
 			getline(file, line);
 			setName(line);

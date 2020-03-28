@@ -4,12 +4,15 @@
 #include"Tile.h"
 #include"Enter.h"
 #include"Exit.h"
+#include"Player.h"
+#include"StateStack.h"
 using namespace std;
 
 class Level {
-	vector<Tile> grid;
 	vector<Enter> entryPoints;
 	vector<Exit> exitPoints;
+	vector<Player> player;
+	vector<Tile> grid;
 	string name;
 	int lvlNo;
 	int diff;
@@ -18,6 +21,10 @@ public:
 	void setName(string);
 	void setLevelNo(int);
 	void displayInfo(); // debug
+	void addPlayer(Player);
+	Player& getPlayer(int);
+	Tile& getTile(int, int);
+	int gridSize() const;
 	friend bool isVisited(const Level& lvl, int _x, int _y, int _v);
 	Level(int lvl);
 };

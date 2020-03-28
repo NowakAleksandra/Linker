@@ -145,6 +145,8 @@
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +154,7 @@
     <ClInclude Include="Exit.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="StateStack.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
