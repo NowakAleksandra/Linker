@@ -9,6 +9,7 @@ public:
 	int getX() const;
 	int getY() const;
 	bool getVisited(int) const;
+	int getEdgeState(int) const;
 	void visit(int);
 	friend class Level;
 	Tile(int _x, int _y, int* e);

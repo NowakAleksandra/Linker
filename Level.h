@@ -22,6 +22,7 @@ public:
 	void setLevelNo(int);
 	void displayInfo(); // debug
 	void addPlayer(Player);
+	bool doesTileExist(int, int) const;
 	Player& getPlayer(int);
 	Tile& getTile(int, int);
 	int gridSize() const;

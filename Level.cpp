@@ -35,6 +35,15 @@ int Level::gridSize() const {
 	return grid.size();
 }
 
+bool Level::doesTileExist(int _x, int _y) const {
+	for (int i = 0; i < grid.size(); i++) {
+		if (grid[i].getX() == _x && grid[i].getY() == _y) {
+			return true;
+		}
+	}
+	return false;
+}
+
 Tile& Level::getTile(int _x, int _y) {
 	for (int i = 0; i < grid.size(); i++) {
 		if (grid[i].getX() == _x && grid[i].getY() == _y) {

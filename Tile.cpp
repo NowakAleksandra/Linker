@@ -12,6 +12,10 @@ bool Tile::getVisited(int v) const {
 	return visited[v];
 }
 
+int Tile::getEdgeState(int v) const {
+	return edge[v];
+}
+
 void Tile::visit(int v) {
 	visited[v] = true;
 }
