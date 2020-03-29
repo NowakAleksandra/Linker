@@ -22,10 +22,10 @@ public:
 	void setLevelNo(int);
 	void displayInfo(); // debug
 	void addPlayer(Player);
-	bool doesTileExist(int, int) const;
+	bool doesTileExist(int, int);
+	int findEdgeState(int, int, int, const char);
 	Player& getPlayer(int);
 	Tile& getTile(int, int);
-	int gridSize() const;
-	friend bool isVisited(const Level& lvl, int _x, int _y, int _v);
+	bool isVertexVisited(int _x, int _y, int _v);
 	Level(int lvl);
 };

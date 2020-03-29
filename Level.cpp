@@ -31,11 +31,7 @@ Player& Level::getPlayer(int n) {
 	return player[n];
 }
 
-int Level::gridSize() const {
-	return grid.size();
-}
-
-bool Level::doesTileExist(int _x, int _y) const {
+bool Level::doesTileExist(int _x, int _y) {
 	for (int i = 0; i < grid.size(); i++) {
 		if (grid[i].getX() == _x && grid[i].getY() == _y) {
 			return true;
@@ -50,6 +46,63 @@ Tile& Level::getTile(int _x, int _y) {
 			return grid[i];
 		}
 	}
+}
+
+int Level::findEdgeState(int _x, int _y, int _v, const char dir) {
+	if (dir == 'r') { // right
+		if (_v == 0 || _v == 1) {
+			if (doesTileExist(_x + 1, _y)) {
+				return getTile(_x + 1, _y).getEdgeState((_v == 0) ? 3 : 1);
+			}
+			else {
+				return 0;
+			}
+		}
+		return getTile(_x, _y).getEdgeState((_v == 2) ? 1 : 3);
+	}
+	else if (dir == 'd') { // down
+		if (_v == 1 || _v == 2) {
+			if (doesTileExist(_x, _y + 1)) {
+				return getTile(_x, _y + 1).getEdgeState((_v == 1) ? 0 : 2);
+			}
+			else {
+				return 0;
+			}
+		}
+		return getTile(_x, _y).getEdgeState((_v == 0) ? 0 : 2);
+	}
+	else if (dir == 'u') { // up
+		if (_v == 0 || _v == 3) {
+			if (doesTileExist(_x, _y - 1)) {
+				return getTile(_x, _y - 1).getEdgeState((_v == 0) ? 0 : 2);
+			}
+			else {
+				return 0;
+			}
+		}
+		return getTile(_x, _y).getEdgeState((_v == 1) ? 0 : 2);
+	}
+	else if (dir == 'l') { // left
+		if (_v == 2 || _v == 3) {
+			if (doesTileExist(_x - 1, _y)) {
+				return getTile(_x - 1, _y).getEdgeState((_v == 2) ? 1 : 3);
+			}
+			else {
+				return 0;
+			}
+		}
+		return getTile(_x, _y).getEdgeState((_v == 0) ? 3 : 1);
+	}
+}
+
+bool Level::isVertexVisited(int _x, int _y, int _v) {
+	for (int i = 0; i < grid.size(); i++) {
+		if (grid[i].getX() == _x && grid[i].getY() == _y) {
+			cout << "Found!\n";
+			return grid[i].getVisited(_v);
+		}
+	}
+	return true; // if vertex does not exist
 }
 
 Level::Level(int lvl) {

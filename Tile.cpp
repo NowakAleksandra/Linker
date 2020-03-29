@@ -1,18 +1,18 @@
 #include"Tile.h"
 
-int Tile::getX() const {
+int Tile::getX() {
 	return x;
 }
 
-int Tile::getY() const {
+int Tile::getY() {
 	return y;
 }
 
-bool Tile::getVisited(int v) const {
+bool Tile::getVisited(int v) {
 	return visited[v];
 }
 
-int Tile::getEdgeState(int v) const {
+int Tile::getEdgeState(int v) {
 	return edge[v];
 }
 
