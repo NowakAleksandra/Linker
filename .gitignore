@@ -1,3 +1,11 @@
 
 .vs
-x64
+x64/Debug/LogicGameProject.tlog
+x64/Debug/*.obj
+x64/Debug/*.exe
+x64/Debug/*.ilk
+x64/Debug/LogicGameProject.vcxproj.FileListAbsolute.txt
+x64/Debug/LogicGameProject.pdb
+x64/Debug/vc142.pdb
+x64/Debug/vc142.idb
+x64/Debug/opencv_world420d.dll
