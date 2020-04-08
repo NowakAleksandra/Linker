@@ -1,50 +1,40 @@
-//#include<opencv2/opencv.hpp>
-//#include<iostream>
-//using namespace std;
-//using namespace cv;
-//int main()
-//{
-//    Mat img = imread("lena.jpg");
-//    namedWindow("image", WINDOW_NORMAL);
-//    imshow("image", img);
-//    waitKey(0);
-//    return 0;
-//}
-
 #include<iostream>
-#include"StateStack.h"
-using namespace std;
+#include"Stack.h"
 
-char checkForMoveKeyPress(); // debug
+const char input();
 
 int main(void) {
-	StateStack stateStack;
-	stateStack.addState(Level(1));
-	stateStack.last().addPlayer(Player(0, 0, 3));
-	stateStack.last().getTile(0, 0).visit(3);
+	Stack stack; //inicjalizacja stosu stanow
+	stack.init(1);
 	while (true) {
-		cout << stateStack.last().getPlayer(0).getX() << ", " << stateStack.last().getPlayer(0).getY() << ", " << stateStack.last().getPlayer(0).getV() << "\n";
-		if (stateStack.move(checkForMoveKeyPress()))
-			cout << "Moved!\n";
-		else
-			cout << "Coudn't move!\n";
+		stack.last().draw(); //szkic poziomu, tymczasowy
+		if (stack.lineConnected() && stack.isSolution()) {
+			std::cout << "DOBRZE!\n";
+			stack.reset(1);
+		}
+		const char key = input(); //obsluga wejscia, tymczasowa
+		if (key == '#') {
+			stack.reset(1);
+		}
+		else {
+			stack.move(key);
+		}
 	}
 }
 
-char checkForMoveKeyPress() {
-	//debug mode
-	char k;
-	while (true) {
-		cin >> k;
-		switch (k) {
-		case 'w':
-			return 'u';
-		case 'a':
-			return 'l';
-		case 's':
-			return 'd';
-		case 'd':
-			return 'r';
-		}
+const char input() {
+	char choice;
+	std::cin >> choice;
+	switch (choice) {
+	case 'w': // up
+		return 'U';
+	case 'a': // left
+		return 'L';
+	case 's': // down
+		return 'D';
+	case 'd': // right
+		return 'R';
+	default: // reset
+		return '#';
 	}
 }

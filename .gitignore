@@ -1,5 +1,6 @@
 
 .vs
+Debug
 x64/Debug/LogicGameProject.tlog
 x64/Debug/*.obj
 x64/Debug/*.exe

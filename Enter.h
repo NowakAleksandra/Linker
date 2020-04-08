@@ -6,6 +6,6 @@ class Enter {
 	bool active;
 public:
 	Enter(int _x, int _y, int v);
-	void changeState(bool state);
+	void changeState(bool);
 	bool isActive();
 };
