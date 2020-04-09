@@ -6,7 +6,11 @@
 #include"Exit.h"
 #include"Player.h"
 #include"StateStack.h"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
 using namespace std;
+using namespace cv;
 
 class Level {
 	vector<Enter> entryPoints;
@@ -22,6 +26,7 @@ public:
 	void setLevelNo(int);
 	void displayInfo(); // debug
 	void addPlayer(Player);
+	void draw(Mat image);
 	bool doesTileExist(int, int);
 	int findEdgeState(int, int, int, const char);
 	Player& getPlayer(int);

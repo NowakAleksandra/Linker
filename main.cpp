@@ -1,7 +1,17 @@
 #include<iostream>
 #include"Stack.h"
 
-const char input();
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
+#include"StateStack.h"
+
+using namespace std;
+using namespace cv;
+
+
+
+char inputaa();
 
 int main(void) {
 	Stack stack; //inicjalizacja stosu stanow
@@ -12,17 +22,19 @@ int main(void) {
 			std::cout << "DOBRZE!\n";
 			stack.reset(1);
 		}
-		const char key = input(); //obsluga wejscia, tymczasowa
+		const char key = inputaa(); //obsluga wejscia, tymczasowa
 		if (key == '#') {
 			stack.reset(1);
 		}
 		else {
 			stack.move(key);
 		}
+
 	}
 }
 
-const char input() {
+char inputaa()
+{
 	char choice;
 	std::cin >> choice;
 	switch (choice) {

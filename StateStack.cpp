@@ -76,3 +76,8 @@ bool StateStack::move(const char dir) {
 	addState(newState);
 	return true;
 }
+
+void StateStack::draw(Mat image)
+{	
+	last().draw(image);
+}

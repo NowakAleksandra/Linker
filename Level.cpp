@@ -27,6 +27,14 @@ void Level::addPlayer(Player p) {
 	player.push_back(p);
 }
 
+void Level::draw(Mat image)
+{
+	for (auto tile : grid)
+	{
+		tile.draw(image);
+	}
+}
+
 Player& Level::getPlayer(int n) {
 	return player[n];
 }
