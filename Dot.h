@@ -1,15 +1,9 @@
 #pragma once
-#include"LogicElement.h"
-#include"Grid.h"
+#include"MapElement.h"
 
-class Dot :public LogicElement {
+// example of conditional map element; Objective: must be visited to be fulfilled
+class Dot : public MapElement {
 public:
-	virtual bool checkFulfilled(Grid& grid) {
-		if (grid.getPoint(x, y).isVisited()) {
-			fulfilled = true;
-			return true;
-		}
-		else return false;
-	}
-	Dot(int x = -1, int y = -1) :LogicElement(x, y) { };
+	virtual bool checkConditions() const { return false; } // TEMP
+	Dot(int x = -1, int y = -1) : MapElement(x, y, "dot") { }
 };

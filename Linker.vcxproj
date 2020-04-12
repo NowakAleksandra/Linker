@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-	  <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)library\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -142,18 +142,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="MoveHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Coords.h" />
     <ClInclude Include="Dot.h" />
-    <ClInclude Include="Grid.h" />
-    <ClInclude Include="Head.h" />
-    <ClInclude Include="LogicElement.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="MapElement.h" />
+    <ClInclude Include="MoveHandler.h" />
+    <ClInclude Include="MoveInfo.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Stack.h" />
+    <ClInclude Include="SolutionChecker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="levels\1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

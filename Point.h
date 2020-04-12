@@ -1,11 +1,11 @@
 #pragma once
-#include"Coords.h"
 
-class Point :public Coords {
-	bool visited;
+class Point {
+protected:
+	int x;
+	int y;
 public:
-	friend class Grid;
-	friend class Stack;
-	bool isVisited() { return visited; };
-	Point(int x = -1, int y = -1) :Coords(x, y), visited(false) { };
+	int getX() const { return x; }
+	int getY() const { return y; }
+	Point(int x = -1, int y = -1) : x(x), y(y) { }
 };
