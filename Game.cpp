@@ -30,6 +30,7 @@ void Game::loadNewLevel(int lvlNo) {
 			for (int i = 0; i < labelNo; i++) {
 				if (line == label[i]) {
 					stage = i;
+					continue;
 				}
 			}
 		}
@@ -38,22 +39,22 @@ void Game::loadNewLevel(int lvlNo) {
 			y = line[2] - '0';
 		}
 		switch (stage) {
-		case 1:
+		case 0:
 			for (int i = 0; i < 8; i++) {
-				if (!checkForPointInVector(x, y, &panel)) {
-					x += shift[i].first;
-					y += shift[i].second;
-					panel.push_back(Point(x + shift[i].first, y + shift[i].second));
+				int dx = x + shift[i].first;
+				int dy = y + shift[i].second;
+				if (!checkForPointInVector(dx, dy, &panel)) {
+					panel.push_back(Point(dx, dy));
 				}
 			}
 			break;
-		case 2:
+		case 1:
 			panel.push_back(Point(x, y));
 			break;
-		case 3:
+		case 2:
 			entry = Point(x, y);
 			break;
-		case 4:
+		case 3:
 			exit = Point(x, y);
 			break;
 		}
