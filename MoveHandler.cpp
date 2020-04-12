@@ -52,8 +52,8 @@ bool MoveHandler::moveRequest(char dir, Level& lvl) {
 	}
 	std::pair<int, int> shift = calculateShift(dir);
 	if (isMoveValid(shift, lvl)) {
-		moveHistory.push_back(MoveInfo(shift.first, shift.second, dir));
 		player.shiftPos(shift);
+		moveHistory.push_back(MoveInfo(player.getX(), player.getY(), dir));
 		player.setHeading(dir);
 		return true;
 	}
