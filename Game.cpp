@@ -30,6 +30,7 @@ void Game::loadNewLevel(int lvlNo) {
 			for (int i = 0; i < labelNo; i++) {
 				if (line == label[i]) {
 					stage = i;
+					continue;
 				}
 			}
 		}
