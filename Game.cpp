@@ -20,7 +20,7 @@ void Game::loadNewLevel(int lvlNo) {
 	OurPoint entry, exit;
 	const std::pair<int, int> shift[8] = { {0, -1}, {0, 1}, {-1, 0}, {1, 0}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1} };
 	const int labelNo = 4;
-	const std::vector<std::string> label = { "$TILE", "$OurPoint", "$START", "$END" };
+	const std::vector<std::string> label = { "$TILE", "$Point", "$START", "$END" };
 	while (file.good()) {
 		getline(file, line);
 		if (line == "") {

@@ -1,4 +1,4 @@
-#include "drawer.h"
+#include "Drawer.h"
 
 
 #include <opencv2/core.hpp>
@@ -12,9 +12,9 @@ using namespace cv;
 
 Drawer::Drawer(int levelno)
 {
-	Linker_window = "Linker: Level number";
+	linkerWindow = "Linker: Level number";
 
-	Linker = Mat::zeros(500, 500, CV_8UC3);
+	linker = Mat::zeros(500, 500, CV_8UC3);
 }
 
 void Drawer::draw(Level currentLevel)
@@ -32,7 +32,7 @@ void Drawer::draw(Level currentLevel)
 			int x = point.getX();
 			int y = point.getY();
 
-			line(Linker,
+			line(linker,
 				cv::Point(25*x+25, 25*y+50),
 				cv::Point(25*x+75,25*y+ 50),
 				Scalar(255, 0, 0),
@@ -43,7 +43,7 @@ void Drawer::draw(Level currentLevel)
 			int x = point.getX();
 			int y = point.getY();
 
-			line(Linker,
+			line(linker,
 				cv::Point(25 * x + 50, 25 * y + 25),
 				cv::Point(25 * x + 50, 25 * y + 75),
 				Scalar(255, 0, 0),
@@ -53,8 +53,8 @@ void Drawer::draw(Level currentLevel)
 
 	}
 
-	imshow(Linker_window, Linker);
-	moveWindow(Linker_window, 0, 200);
+	imshow(linkerWindow, linker);
+	moveWindow(linkerWindow, 0, 200);
 
 	waitKey(0);
 }
