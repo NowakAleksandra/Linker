@@ -5,14 +5,14 @@
 #include<memory>
 
 class Level {
-	std::vector<Point> panel;
+	std::vector<OurPoint> panel;
 	std::vector<std::shared_ptr<MapElement>> mapElem;
-	Point entry;
-	Point exit;
+	OurPoint entry;
+	OurPoint exit;
 public:
 	bool doesPointExist(int x, int y) const;
 	void showPanelDebug() const;
-	Level(std::vector<Point>& panel, std::vector<std::shared_ptr<MapElement>>& mapElem, Point& entry, Point& exit);
+	Level(std::vector<OurPoint>& panel, std::vector<std::shared_ptr<MapElement>>& mapElem, OurPoint& entry, OurPoint& exit);
 	// default constructor
 	Level() { }
 };
