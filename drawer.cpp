@@ -1,5 +1,6 @@
 #include "drawer.h"
 
+
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
@@ -16,22 +17,41 @@ Drawer::Drawer(int levelno)
 	Linker = Mat::zeros(500, 500, CV_8UC3);
 }
 
-void Drawer::draw(Level CurrentLevel)
+void Drawer::draw(Level currentLevel)
 {
 
 	int thickness = 2;
 	int lineType = 8;
-	ellipse(Linker,
-		cv::Point(500 / 2, 500 / 2),
-		Size(500 / 4, 500 / 16),
-		90,						//angle
-		0,
-		360,
-		Scalar(255, 0, 0),
-		thickness,
-		lineType);
 
+	for (int i = 0; i < currentLevel.panel.size(); i++)
+	{
+		OurPoint point=currentLevel.panel[i];
+		
+		if (point.getType() == 0) continue;
+		if (point.getType() == 1) {
+			int x = point.getX();
+			int y = point.getY();
 
+			line(Linker,
+				cv::Point(25*x+25, 25*y+50),
+				cv::Point(25*x+75,25*y+ 50),
+				Scalar(255, 0, 0),
+				thickness = 1,
+				lineType = 8);
+		}
+		if (point.getType() == 2) {
+			int x = point.getX();
+			int y = point.getY();
+
+			line(Linker,
+				cv::Point(25 * x + 50, 25 * y + 25),
+				cv::Point(25 * x + 50, 25 * y + 75),
+				Scalar(255, 0, 0),
+				thickness = 1,
+				lineType = 8);
+		}
+
+	}
 
 	imshow(Linker_window, Linker);
 	moveWindow(Linker_window, 0, 200);

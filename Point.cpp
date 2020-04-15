@@ -1,6 +1,6 @@
 #include"Point.h"
 
-int Point::getType() const {
+int OurPoint::getType() const {
 	if (x % 2 == 0 && y % 2 == 0) {
 		return 0; // vertex (0) "+"
 	}
