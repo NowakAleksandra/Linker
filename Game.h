@@ -2,6 +2,7 @@
 #include"Level.h"
 #include"MoveHandler.h"
 #include"SolutionChecker.h"
+#include"drawer.h"
 
 class Game {
 	int currLvlNo;
@@ -18,7 +19,12 @@ class Game {
 		+ handles moves and checks if they are valid
 	*/
 	SolutionChecker solutionChecker;
+
+	Drawer drawer;
+
+
 public:
 	void loadNewLevel(int lvlNo);
 	Game(int currLvlNo);
+	void drawPanel();
 };

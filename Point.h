@@ -1,6 +1,6 @@
 #pragma once
 
-class Point {
+class OurPoint {
 protected:
 	int x;
 	int y;

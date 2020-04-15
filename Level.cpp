@@ -16,7 +16,7 @@ void Level::showPanelDebug() const {
 	}
 }
 
-Level::Level(std::vector<Point>& panel, std::vector<std::shared_ptr<MapElement>>& mapElem, Point& entry, Point& exit) {
+Level::Level(std::vector<OurPoint>& panel, std::vector<std::shared_ptr<MapElement>>& mapElem, OurPoint& entry, OurPoint& exit) {
 	this->panel = panel;
 	this->mapElem = mapElem;
 	this->entry = entry;
