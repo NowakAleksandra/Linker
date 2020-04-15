@@ -1,5 +1,7 @@
 
 .vs
+*.user
+*.filters
 Debug
 x64/Debug/LogicGameProject.tlog
 x64/Debug/*.obj
