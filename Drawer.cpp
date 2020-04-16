@@ -35,7 +35,7 @@ void Drawer::draw(Level currentLevel)
 			line(linker,
 				cv::Point(25*x+25, 25*y+50),
 				cv::Point(25*x+75,25*y+ 50),
-				Scalar(255, 0, 0),
+				Scalar(102, 255, 102),
 				thickness = 1,
 				lineType = 8);
 		}
@@ -46,7 +46,7 @@ void Drawer::draw(Level currentLevel)
 			line(linker,
 				cv::Point(25 * x + 50, 25 * y + 25),
 				cv::Point(25 * x + 50, 25 * y + 75),
-				Scalar(255, 0, 0),
+				Scalar(102, 255, 102),
 				thickness = 1,
 				lineType = 8);
 		}
