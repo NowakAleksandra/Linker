@@ -9,9 +9,9 @@
 using namespace cv;
 
 class Drawer {
-	std::string Linker_window;
+	std::string linkerWindow;
 
-	Mat Linker;
+	Mat linker;
 public:
 	Drawer(int levelno);
 	void draw(Level CurrentLevel);
